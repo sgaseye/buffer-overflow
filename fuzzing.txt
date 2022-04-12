@@ -1,0 +1,34 @@
+Fuzzing is black box technique . When we dont have access to code but we can reverse engineer the application or we can send fuzzy data to application to check its behviour
+
+ e.g. of fuzzing spike , sulley , Peachfuzz , Boofuzz
+ 
+since boofuzz is not installed with python 
+ pip install boofuzz
+ 
+ 
+ 
+ 
+ from boofuzz import *
+ session=Session(target=Target(connection=SocketConnection("<ip>",1337, proto='tcp')))
+ 
+ # our application is running on port 1337 that is the reason for giving 1337 port there 
+ 
+ s_initialize("overflow1")
+ s_static("OVERFLOW1")
+ s_string("AAAA")
+ 
+ session.connect(s_get("overflow1"))
+ session.fuzz()
+ 
+ 
+ 
+ Download db browser for sqlite(url: sqlitebrowser.org/dl/) and install it in windows where you can see step by step procedure of sending data to application and when the data was so much that it craashed the application 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Fuzzing FTP server 
